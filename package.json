@@ -1,0 +1,23 @@
+{
+  "name": "noweb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "prod": "docker compose -f docker-compose.yml up -d --build",
+    "dev": "docker compose -f docker-compose.override.yml up -d --build",
+    "logs": "docker compose logs -f",
+    "stop": "docker compose down"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lucas-R/noweb.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lucas-R/noweb/issues"
+  },
+  "homepage": "https://github.com/Lucas-R/noweb#readme"
+}
