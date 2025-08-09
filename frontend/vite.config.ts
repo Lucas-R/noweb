@@ -15,12 +15,18 @@ export default defineConfig({
     tailwindcss(),
     react()
   ],
-    resolve: {
+  resolve: {
     alias: {
       "@libs": path.resolve(__dirname, "./src/libs"),
       "@hooks": path.resolve(__dirname, "./src/hooks"),
       "@styles": path.resolve(__dirname, "./src/styles"),
       "@schemas": path.resolve(__dirname, "./src/schemas"),
+    },
+  },
+  server: {
+    host: true,
+    watch: {
+      usePolling: true,
     },
   },
 })
