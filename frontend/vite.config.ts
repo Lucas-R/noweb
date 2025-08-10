@@ -20,7 +20,10 @@ export default defineConfig({
       "@libs": path.resolve(__dirname, "./src/libs"),
       "@hooks": path.resolve(__dirname, "./src/hooks"),
       "@styles": path.resolve(__dirname, "./src/styles"),
+      "@assets": path.resolve(__dirname, "./src/assets"),
       "@schemas": path.resolve(__dirname, "./src/schemas"),
+      "@constants": path.resolve(__dirname, "./src/constants"),
+      "@components": path.resolve(__dirname, "./src/components"),
     },
   },
   server: {

@@ -1,4 +1,3 @@
-import { useZipcode } from '@hooks/useZipcode'
 import { createFileRoute } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/')({
@@ -6,10 +5,6 @@ export const Route = createFileRoute('/')({
 })
 
 function Index() {
-    const { data } = useZipcode("05763390");
-
-    console.log(data);
-
     return (
         <div className="p-2">
             <h3>Welcome Home!</h3>

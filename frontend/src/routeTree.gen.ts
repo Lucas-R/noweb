@@ -10,33 +10,102 @@
 
 import { Route as rootRouteImport } from './pages/__root'
 import { Route as IndexRouteImport } from './pages/index'
+import { Route as ContactUsIndexRouteImport } from './pages/contact-us/index'
+import { Route as AboutUsIndexRouteImport } from './pages/about-us/index'
+import { Route as PortifolioItemRouteImport } from './pages/portifolio/$item'
+import { Route as PagesItemRouteImport } from './pages/pages/$item'
+import { Route as BlogPostRouteImport } from './pages/blog/$post'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContactUsIndexRoute = ContactUsIndexRouteImport.update({
+  id: '/contact-us/',
+  path: '/contact-us/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutUsIndexRoute = AboutUsIndexRouteImport.update({
+  id: '/about-us/',
+  path: '/about-us/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PortifolioItemRoute = PortifolioItemRouteImport.update({
+  id: '/portifolio/$item',
+  path: '/portifolio/$item',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PagesItemRoute = PagesItemRouteImport.update({
+  id: '/pages/$item',
+  path: '/pages/$item',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogPostRoute = BlogPostRouteImport.update({
+  id: '/blog/$post',
+  path: '/blog/$post',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/blog/$post': typeof BlogPostRoute
+  '/pages/$item': typeof PagesItemRoute
+  '/portifolio/$item': typeof PortifolioItemRoute
+  '/about-us': typeof AboutUsIndexRoute
+  '/contact-us': typeof ContactUsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/blog/$post': typeof BlogPostRoute
+  '/pages/$item': typeof PagesItemRoute
+  '/portifolio/$item': typeof PortifolioItemRoute
+  '/about-us': typeof AboutUsIndexRoute
+  '/contact-us': typeof ContactUsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/blog/$post': typeof BlogPostRoute
+  '/pages/$item': typeof PagesItemRoute
+  '/portifolio/$item': typeof PortifolioItemRoute
+  '/about-us/': typeof AboutUsIndexRoute
+  '/contact-us/': typeof ContactUsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/blog/$post'
+    | '/pages/$item'
+    | '/portifolio/$item'
+    | '/about-us'
+    | '/contact-us'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/blog/$post'
+    | '/pages/$item'
+    | '/portifolio/$item'
+    | '/about-us'
+    | '/contact-us'
+  id:
+    | '__root__'
+    | '/'
+    | '/blog/$post'
+    | '/pages/$item'
+    | '/portifolio/$item'
+    | '/about-us/'
+    | '/contact-us/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BlogPostRoute: typeof BlogPostRoute
+  PagesItemRoute: typeof PagesItemRoute
+  PortifolioItemRoute: typeof PortifolioItemRoute
+  AboutUsIndexRoute: typeof AboutUsIndexRoute
+  ContactUsIndexRoute: typeof ContactUsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +117,51 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contact-us/': {
+      id: '/contact-us/'
+      path: '/contact-us'
+      fullPath: '/contact-us'
+      preLoaderRoute: typeof ContactUsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about-us/': {
+      id: '/about-us/'
+      path: '/about-us'
+      fullPath: '/about-us'
+      preLoaderRoute: typeof AboutUsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/portifolio/$item': {
+      id: '/portifolio/$item'
+      path: '/portifolio/$item'
+      fullPath: '/portifolio/$item'
+      preLoaderRoute: typeof PortifolioItemRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pages/$item': {
+      id: '/pages/$item'
+      path: '/pages/$item'
+      fullPath: '/pages/$item'
+      preLoaderRoute: typeof PagesItemRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/$post': {
+      id: '/blog/$post'
+      path: '/blog/$post'
+      fullPath: '/blog/$post'
+      preLoaderRoute: typeof BlogPostRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BlogPostRoute: BlogPostRoute,
+  PagesItemRoute: PagesItemRoute,
+  PortifolioItemRoute: PortifolioItemRoute,
+  AboutUsIndexRoute: AboutUsIndexRoute,
+  ContactUsIndexRoute: ContactUsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

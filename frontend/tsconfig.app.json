@@ -28,7 +28,10 @@
       "@libs/*": ["libs/*"],
       "@hooks/*": ["hooks/*"],
       "@styles/*": ["styles/*"],
-      "@schemas/*": ["schemas/*"]
+      "@assets/*": ["assets/*"],
+      "@schemas/*": ["schemas/*"],
+      "@constants/*": ["constants/*"],
+      "@components/*": ["components/*"],
     }
   },
   "include": ["src"]
