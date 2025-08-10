@@ -1,17 +1,28 @@
 @import "tailwindcss";
 
+@font-face {
+    font-family: 'Gallery Modern';
+    src: url('../assets/fonts/gallery-modern/gallery.otf') format("opentype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
 @theme {
     --color-primary: #BFF747;
     --color-offwhite: #F9F2EB;
     --color-border: #D8DDE1;
-    --color-text: #121212;
+    --color-black: #121212;
     --color-text-secondary: #797E88;
 
     --font-primary: "DM Sans", sans-serif;
+    --font-secondary: "Gallery Modern", sans-serif;
+
+    --radius-big: 3.125rem;
 }
 
 body {
-    @apply bg-offwhite text-text font-primary;
+    @apply bg-offwhite text-black text-base leading-6 font-primary;
 }
 
 button {
