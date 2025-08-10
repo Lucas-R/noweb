@@ -10,8 +10,12 @@
 
 import { Route as rootRouteImport } from './pages/__root'
 import { Route as IndexRouteImport } from './pages/index'
+import { Route as ServicesIndexRouteImport } from './pages/services/index'
+import { Route as PrivacyPolicyIndexRouteImport } from './pages/privacy-policy/index'
+import { Route as OurCareersIndexRouteImport } from './pages/our-careers/index'
 import { Route as ContactUsIndexRouteImport } from './pages/contact-us/index'
 import { Route as AboutUsIndexRouteImport } from './pages/about-us/index'
+import { Route as TermsChar38ConditionsIndexRouteImport } from './pages/Terms-&-Conditions/index'
 import { Route as PortifolioItemRouteImport } from './pages/portifolio/$item'
 import { Route as PagesItemRouteImport } from './pages/pages/$item'
 import { Route as BlogPostRouteImport } from './pages/blog/$post'
@@ -19,6 +23,21 @@ import { Route as BlogPostRouteImport } from './pages/blog/$post'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesIndexRoute = ServicesIndexRouteImport.update({
+  id: '/services/',
+  path: '/services/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyPolicyIndexRoute = PrivacyPolicyIndexRouteImport.update({
+  id: '/privacy-policy/',
+  path: '/privacy-policy/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OurCareersIndexRoute = OurCareersIndexRouteImport.update({
+  id: '/our-careers/',
+  path: '/our-careers/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactUsIndexRoute = ContactUsIndexRouteImport.update({
@@ -31,6 +50,12 @@ const AboutUsIndexRoute = AboutUsIndexRouteImport.update({
   path: '/about-us/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TermsChar38ConditionsIndexRoute =
+  TermsChar38ConditionsIndexRouteImport.update({
+    id: '/Terms-&-Conditions/',
+    path: '/Terms-&-Conditions/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const PortifolioItemRoute = PortifolioItemRouteImport.update({
   id: '/portifolio/$item',
   path: '/portifolio/$item',
@@ -52,16 +77,24 @@ export interface FileRoutesByFullPath {
   '/blog/$post': typeof BlogPostRoute
   '/pages/$item': typeof PagesItemRoute
   '/portifolio/$item': typeof PortifolioItemRoute
+  '/Terms-&-Conditions': typeof TermsChar38ConditionsIndexRoute
   '/about-us': typeof AboutUsIndexRoute
   '/contact-us': typeof ContactUsIndexRoute
+  '/our-careers': typeof OurCareersIndexRoute
+  '/privacy-policy': typeof PrivacyPolicyIndexRoute
+  '/services': typeof ServicesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/blog/$post': typeof BlogPostRoute
   '/pages/$item': typeof PagesItemRoute
   '/portifolio/$item': typeof PortifolioItemRoute
+  '/Terms-&-Conditions': typeof TermsChar38ConditionsIndexRoute
   '/about-us': typeof AboutUsIndexRoute
   '/contact-us': typeof ContactUsIndexRoute
+  '/our-careers': typeof OurCareersIndexRoute
+  '/privacy-policy': typeof PrivacyPolicyIndexRoute
+  '/services': typeof ServicesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -69,8 +102,12 @@ export interface FileRoutesById {
   '/blog/$post': typeof BlogPostRoute
   '/pages/$item': typeof PagesItemRoute
   '/portifolio/$item': typeof PortifolioItemRoute
+  '/Terms-&-Conditions/': typeof TermsChar38ConditionsIndexRoute
   '/about-us/': typeof AboutUsIndexRoute
   '/contact-us/': typeof ContactUsIndexRoute
+  '/our-careers/': typeof OurCareersIndexRoute
+  '/privacy-policy/': typeof PrivacyPolicyIndexRoute
+  '/services/': typeof ServicesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -79,24 +116,36 @@ export interface FileRouteTypes {
     | '/blog/$post'
     | '/pages/$item'
     | '/portifolio/$item'
+    | '/Terms-&-Conditions'
     | '/about-us'
     | '/contact-us'
+    | '/our-careers'
+    | '/privacy-policy'
+    | '/services'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/blog/$post'
     | '/pages/$item'
     | '/portifolio/$item'
+    | '/Terms-&-Conditions'
     | '/about-us'
     | '/contact-us'
+    | '/our-careers'
+    | '/privacy-policy'
+    | '/services'
   id:
     | '__root__'
     | '/'
     | '/blog/$post'
     | '/pages/$item'
     | '/portifolio/$item'
+    | '/Terms-&-Conditions/'
     | '/about-us/'
     | '/contact-us/'
+    | '/our-careers/'
+    | '/privacy-policy/'
+    | '/services/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -104,8 +153,12 @@ export interface RootRouteChildren {
   BlogPostRoute: typeof BlogPostRoute
   PagesItemRoute: typeof PagesItemRoute
   PortifolioItemRoute: typeof PortifolioItemRoute
+  TermsChar38ConditionsIndexRoute: typeof TermsChar38ConditionsIndexRoute
   AboutUsIndexRoute: typeof AboutUsIndexRoute
   ContactUsIndexRoute: typeof ContactUsIndexRoute
+  OurCareersIndexRoute: typeof OurCareersIndexRoute
+  PrivacyPolicyIndexRoute: typeof PrivacyPolicyIndexRoute
+  ServicesIndexRoute: typeof ServicesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -115,6 +168,27 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/': {
+      id: '/services/'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy-policy/': {
+      id: '/privacy-policy/'
+      path: '/privacy-policy'
+      fullPath: '/privacy-policy'
+      preLoaderRoute: typeof PrivacyPolicyIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/our-careers/': {
+      id: '/our-careers/'
+      path: '/our-careers'
+      fullPath: '/our-careers'
+      preLoaderRoute: typeof OurCareersIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact-us/': {
@@ -129,6 +203,13 @@ declare module '@tanstack/react-router' {
       path: '/about-us'
       fullPath: '/about-us'
       preLoaderRoute: typeof AboutUsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/Terms-&-Conditions/': {
+      id: '/Terms-&-Conditions/'
+      path: '/Terms-&-Conditions'
+      fullPath: '/Terms-&-Conditions'
+      preLoaderRoute: typeof TermsChar38ConditionsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/portifolio/$item': {
@@ -160,8 +241,12 @@ const rootRouteChildren: RootRouteChildren = {
   BlogPostRoute: BlogPostRoute,
   PagesItemRoute: PagesItemRoute,
   PortifolioItemRoute: PortifolioItemRoute,
+  TermsChar38ConditionsIndexRoute: TermsChar38ConditionsIndexRoute,
   AboutUsIndexRoute: AboutUsIndexRoute,
   ContactUsIndexRoute: ContactUsIndexRoute,
+  OurCareersIndexRoute: OurCareersIndexRoute,
+  PrivacyPolicyIndexRoute: PrivacyPolicyIndexRoute,
+  ServicesIndexRoute: ServicesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
