@@ -1,5 +1,19 @@
 @import "tailwindcss";
 
 @theme {
+    --color-primary: #BFF747;
+    --color-offwhite: #F9F2EB;
     --color-border: #D8DDE1;
+    --color-text: #121212;
+    --color-text-secondary: #797E88;
+
+    --font-primary: "DM Sans", sans-serif;
+}
+
+body {
+    @apply bg-offwhite text-text font-primary;
+}
+
+button {
+    @apply cursor-pointer;
 }

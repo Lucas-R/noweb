@@ -3,39 +3,39 @@ import type { MenuLinksProps } from "@schemas/MenuLinksSchema";
 export const navigation: MenuLinksProps[] = [
     { 
         to: "/", 
-        label: "Home"
-    },
-    { 
-        to: "/", 
-        label: "About Us", 
+        label: "Home",
         sub: [
-            { to: "/", label: "About Us - item" }
+            { to: "/", label: "Home - item" }
         ] 
     },
     { 
-        to: "/", 
+        to: "/about-us", 
+        label: "About Us", 
+    },
+    { 
+        to: "/portifolio", 
         label: "Portifolio", 
         sub: [
-            { to: "/", label: "Portifolio - item" }
+            { to: "/portifolio/item-1", label: "Portifolio - item" }
         ] 
     },
     { 
         to: "/", 
         label: "Pages", 
         sub: [
-            { to: "/", label: "Pages - item" }
+            { to: "/pages/item-1", label: "Pages - item" }
         ] 
     },
     { 
         to: "/", 
         label: "Blog",
         sub: [
-            { to: "/", label: "Blog - item" }
+            { to: "/blog/item-1", label: "Blog - item" }
 
         ] 
     },
     { 
-        to: "/", 
+        to: "/contact-us", 
         label: "Contact Us"
     }
 ]
