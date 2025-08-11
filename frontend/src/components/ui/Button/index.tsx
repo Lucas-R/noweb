@@ -1,13 +1,14 @@
 import { tv, type VariantProps } from "tailwind-variants";
 
 const button = tv({
-    base: "font-semibold",
+    base: "font-semibold duration-500 hover:scale-105",
     variants: {
         variant: {
             outline: "bg-transparent border border-border",
             default: "bg-primary"
         },
         size: {
+            circle: "w-[9.5rem] h-[9.5rem] flex items-center justify-center rounded-full",
             default: "h-[3.5rem] text-base"
         },
         px: {

@@ -9,6 +9,7 @@ const container = tv({
         },
         py: {
             none: "py-0",
+            lg: "py-20",
             default: "py-20 lg:py-[7.5rem]"
         },
         px: {

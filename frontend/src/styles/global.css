@@ -13,10 +13,12 @@
     --color-offwhite: #F9F2EB;
     --color-border: #D8DDE1;
     --color-black: #121212;
+    --color-gray: #2A2A2A;
     --color-text-secondary: #797E88;
 
     --font-primary: "DM Sans", sans-serif;
     --font-secondary: "Gallery Modern", sans-serif;
+    --font-title: "Gallery Modern", sans-serif;
 
     --radius-big: 3.125rem;
 }
