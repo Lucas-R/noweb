@@ -1,13 +1,16 @@
 import { useEffect, useState } from 'react';
 import { createFileRoute, Link } from '@tanstack/react-router';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, Dot } from 'lucide-react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, FreeMode } from 'swiper/modules';
 import type { UserProps } from '@schemas/userSchema';
 import { users as data } from '@constants/users';
+import { partiners } from '@constants/partiners';
 import Container from '@components/ui/Container'
 import Title from '@components/ui/Title';
 import Button from '@components/ui/Button';
+import Icon from '@components/ui/Icon';
+import Tag from '@components/ui/Tag';
 import bg from '@assets/home/bg.svg';
 import avatar from '@assets/home/wd.svg';
 import paralax from '@assets/home/paralax.svg';
@@ -15,7 +18,6 @@ import ellipses from '@assets/home/ellipses.svg';
 import video from '@assets/home/video.svg';
 
 import 'swiper/css';
-import { partiners } from '@constants/partiners';
 
 export const Route = createFileRoute('/')({
     component: Index,
@@ -41,7 +43,7 @@ function Index() {
                     </p>
 
                     <div className="relative flex flex-col gap-10 lg:flex-row lg:gap-[3.75rem] mb-20">
-                        <h1 className="text-[5.625rem] leading-[6rem] font-title lg:text-[12.5rem] lg:leading-[13rem]">
+                        <h1 className="text-[5.625rem] leading-[6rem] font-secondary lg:text-[12.5rem] lg:leading-[13rem]">
                             Digital <span className="lg:hidden">Solution</span>
                         </h1>
                         <div className="flex flex-col items-center gap-[3.75rem] lg:flex-row">
@@ -109,7 +111,7 @@ function Index() {
                             </div>
                         </div>
 
-                        <h1 className="hidden font-title text-[12.5rem] leading-[13rem] lg:block ">Solution</h1>
+                        <h1 className="hidden font-secondary text-[12.5rem] leading-[13rem] lg:block ">Solution</h1>
                     </div>
                 </Container>
             </header>
@@ -133,7 +135,7 @@ function Index() {
 
                 <Container>
                     <div className="max-w-[52.5rem] mb-[3.75rem]">
-                        <Title heading="h3" as="h3">
+                        <Title heading="h4" as="h4">
                             We collaborate with a few disability service
                             providers to create inclusive goods that
                             meet their requirements.
@@ -177,7 +179,7 @@ function Index() {
 
                     <div>
                         <div className="relative flex items-center mb-8 lg:mb-[3.75rem]">
-                            <Title heading="h4" as="h4" className="relative z-20 bg-black md:left-[7.5625rem] md:px-4">
+                            <Title heading="h6" as="h6" className="relative z-20 bg-black md:left-[7.5625rem] md:px-4">
                                 We worked with global largest brands
                             </Title>
                             <span className="hidden absolute top-1/2 z-10 -translate-y-1/2 bg-gray w-full h-[0.0625rem] md:block 2xl"></span>
@@ -228,8 +230,153 @@ function Index() {
             </section>
 
             <section>
-                <Container>
+                <Container className="flex flex-col items-center justify-center">
+                    <div className="max-w-[47.5625rem] mb-10">
+                        <Tag variant="bigger" className="flex items-center gap-2">
+                            <Icon name="ellipses" />
+                            Services
+                        </Tag>
 
+                        <Title heading="h3" as="h3">
+                            Empowering Brands Through
+                            Strategic Digital Services
+                        </Title>
+
+                    </div>
+
+                    <div className="max-w-[29.125rem] pl-6 lg:pl-15 mb-15">
+                        <p className="leading-[1.625rem]">
+                            Established in 1995, NEXIN has been a leading force
+                            in the digital landscape for over two decades. We're
+                            a passionate team of designers,
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-1 gap-6 w-full h-auto pt-15 border-t border-border mb-20 lg:mb-30 lg:grid-cols-3 lg:gap-7-5">
+                        <Link to="/" className="relative">
+                            <div className="group relative w-full h-auto border border-border p-6 duration-500 overflow-hidden hover:border-primary lg:p-10">
+                                <Tag variant="smaller" className="flex items-center mb-7-5">
+                                    <Dot className="size-6 text-text-secondary" />
+                                    Visual Branding
+                                </Tag>
+                                <Title heading="h5" as="h5" className="mb-7-5">
+                                    Web Design and <br />
+                                    Development
+                                </Title>
+                                <div className="mb-7-5">
+                                    <Icon name="web" />
+                                </div>
+                                <p className="leading-6-5 text-text-secondary mb-7-5 md:mb-0">
+                                    Established in 1995, NEXIN has been leading
+                                    force in the digital landscape for over two
+                                    decades. We're a passionate
+                                </p>
+
+                                <p className="font-extrabold text-center underline md:hidden">See more</p>
+
+                                <span className="absolute bottom-0 -right-[1.5625rem] z-20 block w-40 h-[0.0625rem] border-b border-border -rotate-45 group-hover:border-primary"></span>
+
+                                <button className="absolute bottom-0 right-0 z-30 w-14 h-14 flex items-center justify-center bg-offwhite border border-border rounded-full duration-500 group-hover:border-primary group-hover:bg-primary group-hover:-rotate-45">
+                                    <Icon name="arrow-down-right" />
+                                </button>
+                            </div>
+                            <span className="absolute -bottom-[0.0625rem] -right-[0.0625rem] z-10 block w-[3.5625rem] h-[3.5625rem] bg-offwhite"></span>
+                        </Link>
+
+                        <Link to="/" className="relative">
+                            <div className="group relative w-full h-auto border border-border p-6 duration-500 overflow-hidden hover:border-primary lg:p-10">
+                                <Tag variant="smaller" className="flex items-center mb-7-5">
+                                    <Dot className="size-6 text-text-secondary" />
+                                    Brand Strategy
+                                </Tag>
+                                <Title heading="h5" as="h5" className="mb-7-5">
+                                    Branding and <br />
+                                    Creative Services
+                                </Title>
+                                <div className="mb-7-5">
+                                    <Icon name="brand" />
+                                </div>
+                                <p className="leading-6-5 text-text-secondary mb-7-5 md:mb-0">
+                                    Established in 1995, NEXIN has been leading
+                                    force in the digital landscape for over two
+                                    decades. We're a passionate
+                                </p>
+
+                                <p className="font-extrabold text-center underline md:hidden">See more</p>
+
+                                <span className="absolute bottom-0 -right-[1.5625rem] z-20 block w-40 h-[0.0625rem] border-b border-border -rotate-45 group-hover:border-primary"></span>
+
+                                <button className="absolute bottom-0 right-0 z-30 w-14 h-14 flex items-center justify-center bg-offwhite border border-border rounded-full duration-500 group-hover:border-primary group-hover:bg-primary group-hover:-rotate-45">
+                                    <Icon name="arrow-down-right" />
+                                </button>
+                            </div>
+                            <span className="absolute -bottom-[0.0625rem] -right-[0.0625rem] z-10 block w-[3.5625rem] h-[3.5625rem] bg-offwhite"></span>
+                        </Link>
+
+                        <Link to="/" className="relative">
+                            <div className="group relative w-full h-auto border border-border p-6 duration-500 overflow-hidden hover:border-primary lg:p-10">
+                                <Tag variant="smaller" className="flex items-center mb-7-5">
+                                    <Dot className="size-6 text-text-secondary" />
+                                    Identity Build
+                                </Tag>
+                                <Title heading="h5" as="h5" className="mb-7-5">
+                                    Creative Digital <br />
+                                    Agency
+                                </Title>
+                                <div className="mb-7-5">
+                                    <Icon name="creative" />
+                                </div>
+                                <p className="leading-6-5 text-text-secondary mb-7-5 md:mb-0">
+                                    Established in 1995, NEXIN has been leading
+                                    force in the digital landscape for over two
+                                    decades. We're a passionate
+                                </p>
+
+                                <p className="font-extrabold text-center underline md:hidden">See more</p>
+
+                                <span className="absolute bottom-0 -right-[1.5625rem] z-20 block w-40 h-[0.0625rem] border-b border-border -rotate-45 group-hover:border-primary"></span>
+
+                                <button className="absolute bottom-0 right-0 z-30 w-14 h-14 flex items-center justify-center bg-offwhite border border-border rounded-full duration-500 group-hover:border-primary group-hover:bg-primary group-hover:-rotate-45">
+                                    <Icon name="arrow-down-right" />
+                                </button>
+                            </div>
+                            <span className="absolute -bottom-[0.0625rem] -right-[0.0625rem] z-10 block w-[3.5625rem] h-[3.5625rem] bg-offwhite"></span>
+                        </Link>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:grid-cols-1 lg:flex lg:gap-0">
+                        <div className="w-72 h-72 flex flex-col items-center justify-center gap-4 border border-border rounded-full lg:gap-6 lg:w-[23.0625rem] lg:h-[23.0625rem]">
+                            <p className="text-6xl">35k+</p>
+                            <p className="text-3xl text-center leading-10">
+                                Project <br />
+                                Complete
+                            </p>
+                        </div>
+
+                        <div className="w-72 h-72 flex flex-col items-center justify-center gap-4 border border-border rounded-full lg:gap-6 lg:w-[23.0625rem] lg:h-[23.0625rem] lg:-ml-[62px]">
+                            <p className="text-6xl">10k+</p>
+                            <p className="text-3xl text-center leading-10">
+                                Happy <br />
+                                customers
+                            </p>
+                        </div>
+
+                        <div className="w-72 h-72 flex flex-col items-center justify-center gap-4 border border-border rounded-full lg:gap-6 lg:w-[23.0625rem] lg:h-[23.0625rem] lg:-ml-[62px]">
+                            <p className="text-6xl">25+</p>
+                            <p className="text-3xl text-center leading-10">
+                                Years <br />
+                                experiences
+                            </p>
+                        </div>
+
+                        <div className="w-72 h-72 flex flex-col items-center justify-center gap-4 border border-border rounded-full lg:gap-6 lg:w-[23.0625rem] lg:h-[23.0625rem] lg:-ml-[62px]">
+                            <p className="text-6xl">88</p>
+                            <p className="text-3xl text-center leading-10">
+                                Awards <br />
+                                achievement
+                            </p>
+                        </div>
+                    </div>
                 </Container>
             </section>
 
