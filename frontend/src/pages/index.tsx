@@ -16,6 +16,10 @@ import avatar from '@assets/home/wd.svg';
 import paralax from '@assets/home/paralax.svg';
 import ellipses from '@assets/home/ellipses.svg';
 import video from '@assets/home/video.svg';
+import contact1 from '@assets/home/contact1.svg';
+import contact2 from '@assets/home/contact2.svg';
+import contact3 from '@assets/home/contact3.svg';
+import contact4 from '@assets/home/contact4.svg';
 
 import 'swiper/css';
 
@@ -395,6 +399,112 @@ function Index() {
             <section>
                 <Container>
 
+                </Container>
+            </section>
+
+            <section
+                className="bg-cover bg-center"
+                style={{ backgroundImage: `url(${bg})` }}
+            >
+                <Container className="grid grid-cols-1 gap-15 lg:grid-cols-[45%_55%]">
+                    <div>
+                        <Tag variant="bigger" className="flex items-center gap-2">
+                            <Icon name="ellipses" />
+                            What Sets Us Apart
+                        </Tag>
+                        <Title heading="h3" as="h3" className="mb-10">
+                            Driving Digital Success with Strategy Design
+                        </Title>
+                        <p className="mb-15 text-text-secondary">
+                            We believe that the surest measure of success is when our partners
+                            with us more than half It's more than just the visuals.
+                        </p>
+                        <img
+                            src={contact1}
+                            alt="Driving Digital Success with Strategy Design"
+                            className="lg:w-[38.75rem] lg:h-[25.0625rem]"
+                        />
+                    </div>
+
+                    <div>
+                        <div className="grid grid-cols-1 items-center md:mb-7-5 md:grid-cols-[auto_1fr]">
+                            <img
+                                src={contact2}
+                                alt="Driving Digital Success with Strategy Design"
+                                className="hidden w-[17.6875rem] h-[18.5625rem] md:block"
+                            />
+
+                            <div className="py-6 px-4 text-text-secondary lg:py-14 lg:px-7-5">
+                                <p className="mb-7-5 leading-6-5">
+                                    We believe that the surest measure of success
+                                    is when our partners with us more than half
+                                    It's more than just the visuals. We're here
+                                    to support your growth.
+                                </p>
+                                <p className="leading-6-5">
+                                    We believe that the surest measure of success
+                                    is when our partners with us more than half
+                                    It's more than just the visuals.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div className="flex flex-col gap-7-5 mb-10 md:flex-row">
+                            <div className="md:max-w-[17.6875rem]">
+                                <p className="leading-6-5 text-text-secondary">
+                                    Conduct thorough market research to
+                                    the fast target audience behaviours.
+                                    Submit as many design tasks
+                                </p>
+                            </div>
+                            <div className="grow">
+                                <Title heading="h6" as="h6">Our Mission</Title>
+                                <p>
+                                    Conduct thorough market research to the fast
+                                    target audience behaviours.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div className="flex flex-col gap-7-5 items-center justify-between md:flex-row md:items-start">
+                            <Link to="/contact-us">
+                                <Button size="circle" variant="outline">
+                                    <p className=" inline-flex text-nowrap">
+                                        Contact Us
+                                        <ArrowUpRight />
+                                    </p>
+                                </Button>
+                            </Link>
+
+                            <div className="flex flex-col justify-between gap-7-5 md:flex-row">
+                                <div className="relative flex justify-center w-[10.1875rem] h-[15.5625rem]">
+                                    <img
+                                        src={contact3}
+                                        alt="Marketing Strategy"
+                                        className="relative z-20 w-[8.875rem] h-[8.875rem] rounded-full"
+                                    />
+                                    <div className="absolute bottom-0 z-10 w-full h-[11.75rem] flex items-end justify-center pb-10 bg-primary rounded-big">
+                                        <p className="text-center font-bold">
+                                            Marketing <br /> Strategy
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div className="relative flex justify-center w-[10.1875rem] h-[15.5625rem]">
+                                    <img
+                                        src={contact4}
+                                        alt="UX/UI Solution"
+                                        className="relative z-20 w-[8.875rem] h-[8.875rem] rounded-full"
+                                    />
+                                    <div className="absolute bottom-0 z-10 w-full h-[11.75rem] flex items-end justify-center pb-10 bg-primary rounded-big">
+                                        <p className="text-center font-bold">
+                                            UX/UI <br /> Solution
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </Container>
             </section>
 
