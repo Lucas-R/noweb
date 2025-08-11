@@ -396,9 +396,44 @@ function Index() {
                 </Button>
             </section>
 
-            <section>
+            <section className="bg-white">
                 <Container>
+                    <div className="flex flex-col items-center justify-center mb-15">
+                        <Tag variant="bigger" className="flex items-center gap-2">
+                            <Icon name="ellipses" />
+                            Workflow
+                        </Tag>
+                        <Title heading="h3" as="h3">
+                            How we work
+                        </Title>
+                    </div>
 
+                    <div className="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-7-5">
+                        <div>
+                            <div className="flex items-center justify-between mb-10">
+                                <Icon name="rocket" />
+                                <p className="text-4xl leading-[2.875rem] text-[#D8DDE1] font-plus">01</p>
+                            </div>
+                            <Title heading="h6" as="h6" className="mb-7-5">Research and Strategy</Title>
+                            <p className="max-w-[19.375rem]">Conduct thorough market of the research to the fast target audience behaviors. Submit as many design tasks</p>
+                        </div>
+                        <div>
+                            <div className="flex items-center justify-between mb-10">
+                                <Icon name="pen" />
+                                <p className="text-4xl leading-[2.875rem] text-[#D8DDE1] font-plus">02</p>
+                            </div>
+                            <Title heading="h6" as="h6" className="mb-7-5">Plan Customization</Title>
+                            <p className="max-w-[19.375rem]">Conduct thorough market of the research to the fast target audience behaviors. Submit as many design tasks</p>
+                        </div>
+                        <div>
+                            <div className="flex items-center justify-between mb-10">
+                                <Icon name="rocket" />
+                                <p className="text-4xl leading-[2.875rem] text-[#D8DDE1] font-plus">03</p>
+                            </div>
+                            <Title heading="h6" as="h6" className="mb-7-5">Finished & User Testing</Title>
+                            <p className="max-w-[19.375rem]">Conduct thorough market of the research to the fast target audience behaviors. Submit as many design tasks</p>
+                        </div>
+                    </div>
                 </Container>
             </section>
 
