@@ -217,8 +217,8 @@ function Index() {
                                 }
                             }}
                         >
-                            {[...partiners, ...partiners].map(partiner => (
-                                <SwiperSlide key={partiner.label} className="cursor-grab active:cursor-grabbing">
+                            {[...partiners, ...partiners].map((partiner, i) => (
+                                <SwiperSlide key={i} className="cursor-grab active:cursor-grabbing">
                                     <div className="flex items-center justify-center">
                                         <img
                                             src={partiner.brand}
