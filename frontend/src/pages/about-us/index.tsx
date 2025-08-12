@@ -1,3 +1,4 @@
+import UnderConstruction from '@components/layout/UnderConstruction'
 import { createFileRoute } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/about-us/')({
@@ -5,5 +6,5 @@ export const Route = createFileRoute('/about-us/')({
 })
 
 function RouteComponent() {
-    return <div>Hello "/about-us/"!</div>
+    return <UnderConstruction />
 }

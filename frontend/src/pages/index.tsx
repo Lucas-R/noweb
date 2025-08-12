@@ -47,9 +47,9 @@ function Index() {
                     </p>
 
                     <div className="relative flex flex-col gap-10 lg:flex-row lg:gap-[3.75rem] mb-20">
-                        <h1 className="text-[5.625rem] leading-[6rem] font-secondary lg:text-[12.5rem] lg:leading-[13rem]">
+                        <Title heading="h1" as="h1">
                             Digital <span className="lg:hidden">Solution</span>
-                        </h1>
+                        </Title>
                         <div className="flex flex-col items-center gap-[3.75rem] lg:flex-row">
                             <div className="max-w-[29.0625rem]">
                                 <p className="mb-10">
@@ -114,8 +114,7 @@ function Index() {
                                 />
                             </div>
                         </div>
-
-                        <h1 className="hidden font-secondary text-[12.5rem] leading-[13rem] lg:block ">Solution</h1>
+                        <Title heading="h1" as="h1" className="hidden lg:block">Solution</Title>
                     </div>
                 </Container>
             </header>
