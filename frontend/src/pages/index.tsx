@@ -441,7 +441,7 @@ function Index() {
                 className="bg-cover bg-center"
                 style={{ backgroundImage: `url(${bg})` }}
             >
-                <Container className="grid grid-cols-1 gap-15 lg:grid-cols-[45%_55%]">
+                <Container className="grid grid-cols-1 gap-10 2xl:gap-15 lg:grid-cols-[1fr_41.875rem]">
                     <div>
                         <Tag variant="bigger" className="flex items-center gap-2">
                             <Icon name="ellipses" />
@@ -466,10 +466,10 @@ function Index() {
                             <img
                                 src={contact2}
                                 alt="Driving Digital Success with Strategy Design"
-                                className="hidden w-[17.6875rem] h-[18.5625rem] md:block"
+                                className="hidden w-[14.6875rem] h-[15.5625rem] 2xl:w-[17.6875rem] 2xl:h-[18.5625rem] md:block"
                             />
 
-                            <div className="py-6 px-4 text-text-secondary lg:py-14 lg:px-7-5">
+                            <div className="pl-4 text-text-secondary lg:pl-7-5">
                                 <p className="mb-7-5 leading-6-5">
                                     We believe that the surest measure of success
                                     is when our partners with us more than half
