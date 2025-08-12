@@ -4,7 +4,7 @@ import { createFileRoute } from '@tanstack/react-router'
 export const Route = createFileRoute('/privacy-policy/')({
   head: () => ({
     meta: [{
-      title: "Noweb | Privacy policy"
+      title: "NEX | Privacy policy"
     }]
   }),
   component: RouteComponent,
