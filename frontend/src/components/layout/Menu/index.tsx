@@ -59,7 +59,7 @@ export default function Menu() {
 
     return (
         <div className="bg-white border-b border-border">
-            <Container className="h-20 lg:h-[6.5rem] flex items-center justify-between">
+            <Container py="none" className="h-20 lg:h-[6.5rem] flex items-center justify-between">
                 <Link to="/">
                     <img
                         src={Brand}
