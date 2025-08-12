@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 const MenuLink = z.object({
-    to: z.string(),
+    to: z.string().optional(),
     label: z.string(),
     sub: z.array(
         z.object({

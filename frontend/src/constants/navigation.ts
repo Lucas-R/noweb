@@ -2,7 +2,6 @@ import type { MenuLinksProps } from "@schemas/MenuLinksSchema";
 
 export const navigation: MenuLinksProps[] = [
     { 
-        to: "/", 
         label: "Home",
         sub: [
             { to: "/", label: "Home - item" }
@@ -13,24 +12,24 @@ export const navigation: MenuLinksProps[] = [
         label: "About Us", 
     },
     { 
-        to: "/portifolio", 
         label: "Portifolio", 
         sub: [
-            { to: "/portifolio/item-1", label: "Portifolio - item" }
+            { to: "/portifolio/project-1", label: "Project - item" },
+            { to: "/portifolio/project-2", label: "Project - item" }
         ] 
     },
     { 
-        to: "/", 
         label: "Pages", 
         sub: [
-            { to: "/pages/item-1", label: "Pages - item" }
+            { to: "/pages/page-1", label: "Pages - one" },
+            { to: "/pages/page-2", label: "Pages - two" },
+            { to: "/pages/page-3", label: "Pages - three" }
         ] 
     },
     { 
-        to: "/", 
         label: "Blog",
         sub: [
-            { to: "/blog/item-1", label: "Blog - item" }
+            { to: "/blog/post-1", label: "post - item" }
 
         ] 
     },
