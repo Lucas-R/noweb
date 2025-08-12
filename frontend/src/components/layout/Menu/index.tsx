@@ -149,7 +149,7 @@ export default function Menu() {
                                         `}>
                                         {nav.sub?.map(sub => (
                                             <Link
-                                                key={sub.label}
+                                                key={sub.to}
                                                 to={sub.to}
                                                 className="w-full h-10 flex items-center"
                                             >{sub.label}</Link>
