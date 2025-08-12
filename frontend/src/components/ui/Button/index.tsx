@@ -5,6 +5,7 @@ const button = tv({
     variants: {
         variant: {
             outline: "bg-transparent border border-border",
+            danger: "bg-danger border border-border",
             default: "bg-primary"
         },
         size: {
