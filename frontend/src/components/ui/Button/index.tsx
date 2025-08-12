@@ -24,7 +24,7 @@ const button = tv({
     }
 });
 
-interface ButtonProps extends VariantProps<typeof button>, React.HTMLAttributes<HTMLButtonElement> { }
+interface ButtonProps extends VariantProps<typeof button>, React.ButtonHTMLAttributes<HTMLButtonElement> { }
 
 export default function Button({ children, variant, size, px, className, ...rest }: ButtonProps) {
     return (

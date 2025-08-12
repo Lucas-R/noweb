@@ -2,13 +2,17 @@ import { api } from "@libs/axios";
 import { useQuery } from "@tanstack/react-query";
 import type { ZipcodeProps } from "@schemas/ZipcodeSchema";
 
-export async function fetchZipcode(zipcode: string): Promise<ZipcodeProps> {
+export async function fetchZipcode(zipcode: string): Promise<ZipcodeProps | null> {
+  const isValidZipcode = /^\d{5}-?\d{3}$/.test(zipcode);
+
+  if(!isValidZipcode) return null;
+
   const { data } = await api.get(`/${zipcode}/json/`);
   return data;
 }
 
 export function useZipcode(zipcode: string) {
-  return useQuery<ZipcodeProps>({
+  return useQuery<ZipcodeProps | null>({
     queryKey: ["zipcode", zipcode],
     queryFn: () => fetchZipcode(zipcode),
     enabled: !!zipcode,

@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { tv, type VariantProps } from "tailwind-variants";
 import { Link, useNavigate } from "@tanstack/react-router";
+import { useForm, type SubmitHandler } from "react-hook-form";
 import { AlignRight, ArrowUpRight, ChevronDown, Search, X } from "lucide-react";
+import { useZipcode } from "@hooks/useZipcode";
 import type { MenuLinksProps } from "@schemas/MenuLinksSchema";
+import type { AddressProps } from "@schemas/AddressSchema";
 import { navigation } from "@constants/navigation";
 import Container from "@components/ui/Container";
 import Button from "@components/ui/Button";
@@ -41,11 +44,40 @@ function Actions({ className, onSearch }: ActionsProps) {
 export default function Menu() {
     const navigate = useNavigate();
     const [active, setActive] = useState(false);
-    const [search, setSearch] = useState(false);
+    const [searchInput, setSearchInput] = useState("");
+    const [searchModal, setSearchModal] = useState(false);
     const [item, setItem] = useState("");
+    const { register, handleSubmit, reset, setValue, watch, formState: { errors } } = useForm<AddressProps>();
+    const onSubmit: SubmitHandler<AddressProps> = data => {
+        console.log(data)
+        console.log(errors);
+    }
+    const { data, error } = useZipcode(searchInput);
+
+    useEffect(() => {
+        if (error) console.log(error)
+        if (data) {
+            setValue("publicPlace", data.logradouro);
+            setValue("neighborhood", data.bairro);
+            setValue("uf", data.uf);
+            setValue("state", data.estado);
+            setValue("zipcode", data.cep);
+        }
+    }, [data, error, setValue])
 
     function handleSearch() {
-        setSearch(prev => !prev);
+        const cleaned = watch("zipcode").replace(/[^0-9-]/g, "");
+
+        if (cleaned.length <= 9) setSearchInput(cleaned);
+    }
+
+    function handleReset() {
+        reset();
+        setSearchInput("");
+    }
+
+    function handleSearchModal() {
+        setSearchModal(prev => !prev);
     }
 
     function handleMenu() {
@@ -126,35 +158,47 @@ export default function Menu() {
                                 </button>
                             ))}
                         </div>
-                        <Actions className="lg:hidden" onSearch={handleSearch} />
+                        <Actions className="lg:hidden" onSearch={handleSearchModal} />
                     </nav>
 
-                    <Actions className="hidden lg:flex" onSearch={handleSearch} />
+                    <Actions className="hidden lg:flex" onSearch={handleSearchModal} />
                 </Container>
             </div>
 
-            <Modal.wrapper isOpen={search} bg="dark">
+            <Modal.wrapper isOpen={searchModal} bg="dark">
                 <Modal.header className="justify-between">
                     <Title heading="h6" as="h6" className="flex items-center gap-2 text-primary">
                         <Search className="size-6" /> Search zipcode
                     </Title>
                     <button
                         className="text-primary"
-                        onClick={handleSearch}
+                        onClick={handleSearchModal}
                     >
                         <X className="size-6" />
                     </button>
                 </Modal.header>
                 <Modal.body className="">
-                    <div className="flex items-center justify-end mb-4 pb-4 border-b border-border">
-                        <Input
-                            type="text"
-                            placeholder="Zipcode"
-                            className="max-w-96"
-                        />
-                    </div>
-                    <div className="grid grid-cols-3 gap-4 md:grid-cols-5">
-                        <div className="col-span-3 md:col-span-5">
+                    <form
+                        className="grid grid-cols-3 gap-4 md:grid-cols-5"
+                        onSubmit={handleSubmit(onSubmit)}
+                        id="address-form"
+                    >
+                        <div className="col-span-3 md:col-span-2">
+                            <label
+                                htmlFor="street"
+                                className="block text-sm text-text-secondary mb-2"
+                            >CEP</label>
+                            <Input
+                                type="text"
+                                placeholder="Zipcode"
+                                {...register("zipcode", {
+                                    required: "CEP obrigatório"
+                                })}
+                                onChange={handleSearch}
+                            />
+                            {errors.zipcode && <span className="text-xs text-danger">{errors.zipcode.message}</span>}
+                        </div>
+                        <div className="col-span-3">
                             <label
                                 htmlFor="street"
                                 className="block text-sm text-text-secondary mb-2"
@@ -163,9 +207,25 @@ export default function Menu() {
                                 id="street"
                                 type="text"
                                 placeholder="Public place"
+                                {...register("publicPlace", {
+                                    required: "Logradouro obrigatório"
+                                })}
+                            />
+                            {errors.publicPlace && <span className="text-xs text-danger">{errors.publicPlace.message}</span>}
+                        </div>
+                        <div className="col-span-1">
+                            <label
+                                htmlFor="number"
+                                className="block text-sm text-text-secondary mb-2"
+                            >N°</label>
+                            <Input
+                                id="number"
+                                type="number"
+                                placeholder="num"
+                                {...register("number")}
                             />
                         </div>
-                        <div className="col-span-3 md:col-span-2">
+                        <div className="col-span-2 md:col-span-4">
                             <label
                                 htmlFor="neighborhood"
                                 className="block text-sm text-text-secondary mb-2"
@@ -174,7 +234,11 @@ export default function Menu() {
                                 id="neighborhood"
                                 type="text"
                                 placeholder="Neighborhood"
+                                {...register("neighborhood", {
+                                    required: "Bairro obrigatório"
+                                })}
                             />
+                            {errors.neighborhood && <span className="text-xs text-danger">{errors.neighborhood.message}</span>}
                         </div>
                         <div className="col-span-1">
                             <label
@@ -185,9 +249,13 @@ export default function Menu() {
                                 id="uf"
                                 type="text"
                                 placeholder="UF"
+                                {...register("uf", {
+                                    required: "UF obrigatório"
+                                })}
                             />
+                            {errors.uf && <span className="text-xs text-danger">{errors.uf.message}</span>}
                         </div>
-                        <div className="col-span-2">
+                        <div className="col-span-2 md:col-span-4">
                             <label
                                 htmlFor="state"
                                 className="block text-sm text-text-secondary mb-2"
@@ -196,7 +264,11 @@ export default function Menu() {
                                 id="state"
                                 type="text"
                                 placeholder="State"
+                                {...register("state", {
+                                    required: "Estado obrigatório"
+                                })}
                             />
+                            {errors.state && <span className="text-xs text-danger">{errors.state.message}</span>}
                         </div>
                         <div className="col-span-3 md:col-span-5">
                             <label
@@ -207,13 +279,14 @@ export default function Menu() {
                                 id="complement"
                                 placeholder="Complement"
                                 rows={3}
+                                {...register("complement")}
                             ></Textarea>
                         </div>
-                    </div>
+                    </form>
                 </Modal.body >
                 <Modal.footer className="gap-4 justify-end">
-                    <Button variant="danger"> Reset </Button>
-                    <Button> Save </Button>
+                    <Button variant="danger" type="reset" onClick={handleReset}> Reset </Button>
+                    <Button type="submit" form="address-form"> Save </Button>
                 </Modal.footer>
             </Modal.wrapper >
         </>
