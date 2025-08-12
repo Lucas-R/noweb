@@ -5,6 +5,7 @@ const button = tv({
     variants: {
         variant: {
             outline: "bg-transparent border border-border",
+            danger: "bg-danger border border-border",
             default: "bg-primary"
         },
         size: {
@@ -23,7 +24,7 @@ const button = tv({
     }
 });
 
-interface ButtonProps extends VariantProps<typeof button>, React.HTMLAttributes<HTMLButtonElement> { }
+interface ButtonProps extends VariantProps<typeof button>, React.ButtonHTMLAttributes<HTMLButtonElement> { }
 
 export default function Button({ children, variant, size, px, className, ...rest }: ButtonProps) {
     return (
