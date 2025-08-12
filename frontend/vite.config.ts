@@ -22,6 +22,7 @@ export default defineConfig({
       "@styles": path.resolve(__dirname, "./src/styles"),
       "@assets": path.resolve(__dirname, "./src/assets"),
       "@schemas": path.resolve(__dirname, "./src/schemas"),
+      "@template": path.resolve(__dirname, "./src/template"),
       "@constants": path.resolve(__dirname, "./src/constants"),
       "@components": path.resolve(__dirname, "./src/components"),
     },

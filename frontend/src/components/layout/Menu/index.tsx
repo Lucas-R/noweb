@@ -58,7 +58,7 @@ export default function Menu() {
     }
 
     return (
-        <div className="bg-white border-b border-border">
+        <div className="fixed top-0 z-50 w-full h-auto bg-white border-b border-border">
             <Container py="none" className="h-20 lg:h-[6.5rem] flex items-center justify-between">
                 <Link to="/">
                     <img
