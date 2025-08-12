@@ -30,6 +30,7 @@
       "@styles/*": ["styles/*"],
       "@assets/*": ["assets/*"],
       "@schemas/*": ["schemas/*"],
+      "@template/*": ["template/*"],
       "@constants/*": ["constants/*"],
       "@components/*": ["components/*"],
     }
