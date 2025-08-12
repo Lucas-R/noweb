@@ -4,7 +4,7 @@ import { createFileRoute } from '@tanstack/react-router'
 export const Route = createFileRoute('/Terms-&-Conditions/')({
     head: () => ({
         meta: [{
-            title: "Noweb | Terms & conditions"
+            title: "NEX | Terms & conditions"
         }]
     }),
     component: RouteComponent,

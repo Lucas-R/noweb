@@ -4,7 +4,7 @@ import { createFileRoute } from '@tanstack/react-router'
 export const Route = createFileRoute('/pages/$item')({
     head: () => ({
         meta: [{
-            title: "Noweb | Pages"
+            title: "NEX | Pages"
         }]
     }),
     component: RouteComponent,

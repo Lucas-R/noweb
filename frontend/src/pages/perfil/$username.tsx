@@ -4,7 +4,7 @@ import { createFileRoute } from '@tanstack/react-router'
 export const Route = createFileRoute('/perfil/$username')({
     head: () => ({
         meta: [{
-            title: "Noweb | Perfil"
+            title: "NEX | Perfil"
         }]
     }),
     component: RouteComponent,

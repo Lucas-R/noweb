@@ -24,6 +24,11 @@ import contact4 from '@assets/home/contact4.svg';
 import 'swiper/css';
 
 export const Route = createFileRoute('/')({
+    head: () => ({
+        meta: [{
+            title: "NEX | Home"
+        }]
+    }),
     component: Index,
 })
 
