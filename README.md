@@ -4,7 +4,7 @@ O **Projeto Nex** é um ambiente de desenvolvimento pronto para uso, configurado
 
 - **PostgreSQL** (Banco de Dados)  
 - **Backend** (Node.js + Express + TypeORM)  
-- **Frontend** (React + Vite)  
+- **Frontend** (React + Vite + Tailwind + Tanstack Router e Query)  
 
 Tudo integrado para facilitar o desenvolvimento e testes.
 
@@ -21,36 +21,29 @@ Tudo integrado para facilitar o desenvolvimento e testes.
 ## 🛠 Como rodar o projeto
 
 ### Clonar o repositório
-```bash
-git clone https://github.com/Lucas-R/noweb
-cd noweb
+1. `git clone https://github.com/Lucas-R/noweb`
 
+2. `cd noweb/frontend/`
 
-### 2 Rodar Frontend
-```bash
-cd /frontend
-- Dentro do diretório /frontend pode rodar o comando
-   - npm run dev
-   Pode vizualizar o layout e navegar pelas paginas e testar o formulario que se encontra no menu no botão om lupa adicione o cep e ele preenche o formulario com as informações encontradas.
-```
+3. `npm run dev`
+
+> Pode acessar o projeto na url `http://localhost:5173/`.
 
 ### Docker
-```bash
-/raiz
-- Dentro da /raiz
-   - npm run dev
-   se tiver o docker instalado ele vai criar os container de /database(PostgreSQL) /backend(express) e /frontend
+Depois de clonar o projeto pode rodar os comandos:
 
-   pode navegar pelo frontend igualmente mas tera a opção de salvar sua busca.
-```
-
-É um teste que eu executei para frontend e achei injusto não salvar esses dados, fui um pouco além e criei o backend para tratar esses dados, criei de forma basica e simples só para uso do test.
+`npm run development`
+> Vai criar dos os containers em modo de desenvolvimento e para testar precisa rodar o comando no terminal do container backend `npm run migration:run` para criar a tabela no banco, assim na pesquisa de endereço que pode realizar no frontend podera salvar no banco.
 
 Para vizualizar os dados salvos pode utilizar as url's
 localhost:3000/api/v1/address
-    - get
-    - post
-    - update
-    - delete
+* /POST
+* /GET
+* /PUT
+* /DELETE
+
+`npm run production`
+> Vai criar apenas o container do  frontend buildado.
+
 
 Eu não trabalhei a fundo como segurança, validação, tratamento de errors e etc.
