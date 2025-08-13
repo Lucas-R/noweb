@@ -7,7 +7,7 @@ export async function fetchZipcode(zipcode: string): Promise<ZipcodeProps | null
 
   if(!isValidZipcode) return null;
 
-  const { data } = await zipcodeapi.get(`${zipcode}/json/`);
+  const { data } = await zipcodeapi.get(`/${zipcode}/json/`);
   return data;
 }
 
