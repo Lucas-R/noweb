@@ -3,6 +3,10 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY . .
+ARG VITE_ZIPCODE_API
+ARG VITE_URL_API
+ENV VITE_ZIPCODE_API=$VITE_ZIPCODE_API
+ENV VITE_URL_API=$VITE_URL_API
 
 RUN npm run build
 FROM nginx:stable-alpine

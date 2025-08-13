@@ -15,7 +15,7 @@ export default function useApi<T>({ endpoint, method = "get" }: UseApiProps) {
 
     async function handleFetch(endpoint: string, method: methods) {
         try {
-            const { data } = await api[method](`/${endpoint}`);
+            const { data } = await api[method](`${endpoint}`);
             setData(data);
         } catch (error) {
             setError(error)

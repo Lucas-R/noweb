@@ -3,10 +3,10 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile
+      args:
+          VITE_ZIPCODE_API: ${FRONTEND_ZIPCODE_API}
+          VITE_URL_API: ${FRONTEND_URL_API}
     container_name: frontend-production
-    environment:
-      VITE_ZIPCODE_API: ${FRONTEND_ZIPCODE_API}
-      VITE_URL_API: ${FRONTEND_URL_API}
     ports:
       - "8080:80"
     restart: unless-stopped

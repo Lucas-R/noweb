@@ -59,10 +59,9 @@ export default function Menu() {
                 state: data.state,
                 complement: data.complement || undefined
             });
+            reset();
         } catch (error) {
             console.warn(error);
-        } finally {
-            reset();
         }
     }
     const { data, error } = useZipcode(watch("zipcode"));
