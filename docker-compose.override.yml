@@ -49,6 +49,7 @@ services:
       dockerfile: Dockerfile.dev
     container_name: frontend-dev
     environment:
+      VITE_ZIPCODE_API: ${FRONTEND_ZIPCODE_API}
       VITE_URL_API: ${FRONTEND_URL_API}
     ports:
       - "5173:5173"

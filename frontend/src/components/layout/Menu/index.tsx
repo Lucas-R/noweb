@@ -14,6 +14,7 @@ import Title from "@components/ui/Title";
 import Brand from "@assets/brands/brand.svg";
 import Input from "@components/ui/Input";
 import Textarea from "@components/ui/Textarea";
+import { api } from "@libs/axios";
 
 const actions = tv({
     base: "flex items-center justify-center gap-6",
@@ -47,9 +48,22 @@ export default function Menu() {
     const [searchModal, setSearchModal] = useState(false);
     const [item, setItem] = useState("");
     const { register, handleSubmit, reset, setValue, watch, formState: { errors } } = useForm<AddressProps>();
-    const onSubmit: SubmitHandler<AddressProps> = data => {
-        console.log(data)
-        console.log(errors);
+    const onSubmit: SubmitHandler<AddressProps> = async data => {
+        try {
+            await api.post("/api/v1/address", {
+                zipcode: data.zipcode,
+                publicPlace: data.publicPlace,
+                neighborhood: data.neighborhood,
+                number: Number(data.number) || undefined,
+                uf: data.uf,
+                state: data.state,
+                complement: data.complement || undefined
+            });
+        } catch (error) {
+            console.warn(error);
+        } finally {
+            reset();
+        }
     }
     const { data, error } = useZipcode(watch("zipcode"));
 
