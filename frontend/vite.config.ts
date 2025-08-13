@@ -21,7 +21,6 @@ export default defineConfig({
       "@hooks": path.resolve(__dirname, "./src/hooks"),
       "@styles": path.resolve(__dirname, "./src/styles"),
       "@assets": path.resolve(__dirname, "./src/assets"),
-      "@helpers": path.resolve(__dirname, "./src/helpers"),
       "@schemas": path.resolve(__dirname, "./src/schemas"),
       "@template": path.resolve(__dirname, "./src/template"),
       "@constants": path.resolve(__dirname, "./src/constants"),
