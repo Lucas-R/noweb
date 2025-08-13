@@ -68,7 +68,6 @@ export default function Menu() {
     const { data, error } = useZipcode(watch("zipcode"));
 
     useEffect(() => {
-        if (error) reset();
         if (data) {
             setValue("publicPlace", data.logradouro);
             setValue("neighborhood", data.bairro);

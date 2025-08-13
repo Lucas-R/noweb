@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "prod": "docker compose -f docker-compose.yml up -d --build",
-    "dev": "docker compose --env-file .env.dev -f docker-compose.override.yml up -d --build",
+    "production": "docker compose --env-file .env.production -f docker-compose.yml up -d --build",
+    "development": "docker compose --env-file .env.development -f docker-compose.override.yml up -d --build",
     "logs": "docker compose logs -f",
     "stop": "docker compose down --volumes"
   },
