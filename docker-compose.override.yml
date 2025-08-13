@@ -1,12 +1,67 @@
 services:
+  database-dev:
+    image: postgres:16
+    container_name: database-dev
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASS}
+      POSTGRES_DB: ${DB_DATA}
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d ${DB_DATA}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - nex-network
+
+  backend-dev:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.dev
+    container_name: backend-dev
+    environment:
+      DB_HOST: database-dev
+      DB_PORT: 5432
+      DB_USER: ${DB_USER}
+      DB_PASS: ${DB_PASS}
+      DB_DATA: ${DB_DATA}
+      SERVER_HOST: ${SERVER_HOST}
+      SERVER_PORT: ${SERVER_PORT}
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    depends_on:
+      database-dev:
+        condition: service_healthy
+    command: npm run dev
+    networks:
+      - nex-network
+
   frontend-dev:
     build:
       context: ./frontend
       dockerfile: Dockerfile.dev
     container_name: frontend-dev
+    environment:
+      VITE_URL_API: ${FRONTEND_URL_API}
     ports:
       - "5173:5173"
     volumes:
       - ./frontend:/app
       - /app/node_modules
     command: npm run dev -- --host
+    networks:
+      - nex-network
+
+volumes:
+  pgdata:
+
+networks:
+  nex-network:
+    driver: bridge
