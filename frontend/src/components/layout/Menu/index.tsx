@@ -44,7 +44,6 @@ function Actions({ className, onSearch }: ActionsProps) {
 export default function Menu() {
     const navigate = useNavigate();
     const [active, setActive] = useState(false);
-    const [searchInput, setSearchInput] = useState("");
     const [searchModal, setSearchModal] = useState(false);
     const [item, setItem] = useState("");
     const { register, handleSubmit, reset, setValue, watch, formState: { errors } } = useForm<AddressProps>();
@@ -52,10 +51,10 @@ export default function Menu() {
         console.log(data)
         console.log(errors);
     }
-    const { data, error } = useZipcode(searchInput);
+    const { data, error } = useZipcode(watch("zipcode"));
 
     useEffect(() => {
-        if (error) console.log(error)
+        if (error) reset();
         if (data) {
             setValue("publicPlace", data.logradouro);
             setValue("neighborhood", data.bairro);
@@ -63,18 +62,7 @@ export default function Menu() {
             setValue("state", data.estado);
             setValue("zipcode", data.cep);
         }
-    }, [data, error, setValue])
-
-    function handleSearch() {
-        const cleaned = watch("zipcode").replace(/[^0-9-]/g, "");
-
-        if (cleaned.length <= 9) setSearchInput(cleaned);
-    }
-
-    function handleReset() {
-        reset();
-        setSearchInput("");
-    }
+    }, [data, error, setValue, reset]);
 
     function handleSearchModal() {
         setSearchModal(prev => !prev);
@@ -191,10 +179,15 @@ export default function Menu() {
                             <Input
                                 type="text"
                                 placeholder="Zipcode"
+                                maxLength={9}
                                 {...register("zipcode", {
-                                    required: "CEP obrigatório"
+                                    required: "CEP obrigatório",
+                                    pattern: {
+                                        value: /^\d{5}-?\d{3}$/,
+                                        message: "Formato do CEP inválido (ex: 12345-678)",
+                                    },
+                                    max: 9
                                 })}
-                                onChange={handleSearch}
                             />
                             {errors.zipcode && <span className="text-xs text-danger">{errors.zipcode.message}</span>}
                         </div>
@@ -285,7 +278,7 @@ export default function Menu() {
                     </form>
                 </Modal.body >
                 <Modal.footer className="gap-4 justify-end">
-                    <Button variant="danger" type="reset" onClick={handleReset}> Reset </Button>
+                    <Button variant="danger" type="reset" onClick={() => reset()}> Reset </Button>
                     <Button type="submit" form="address-form"> Save </Button>
                 </Modal.footer>
             </Modal.wrapper >
