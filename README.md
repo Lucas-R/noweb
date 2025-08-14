@@ -32,6 +32,8 @@ Tudo integrado para facilitar o desenvolvimento e testes.
 ### Docker
 Depois de clonar o projeto pode rodar os comandos:
 
+Mudar o arquivo .env.example para .env.development ou .env.production.
+
 `npm run development`
 > Vai criar dos os containers em modo de desenvolvimento e para testar precisa rodar o comando no terminal do container backend `npm run migration:run` para criar a tabela no banco, assim na pesquisa de endereço que pode realizar no frontend podera salvar no banco.
 
